@@ -9,6 +9,7 @@ export const getRecipes =async (req, res, next) => {
         res.json(allRecipes);
     } catch (error) {
         next(error)
+        
     }
 };
  //Post recipes

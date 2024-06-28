@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { RecipeModel } from "../models/recipe.js";
 import { deleteRecipe, getRecipe, getRecipes, patchRecipe, postRecipes } from "../controllers/recipe.js";
 
 

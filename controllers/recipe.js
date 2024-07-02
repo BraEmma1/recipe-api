@@ -3,8 +3,13 @@ import { RecipeModel } from "../models/recipe.js";
 //Get All recipes
 export const getRecipes = async (req, res, next) => {
     try {
+        //Get query params
+        const { limit, skip, search } = req.query;
         //Get all recipe from databse
-        const allRecipes = await RecipeModel.find();
+        const allRecipes = await RecipeModel
+            .find({ name: search })
+            .limit(limit)
+            .skip(skip);
         //return all recipes as response
         res.json(allRecipes);
     } catch (error) {
@@ -55,7 +60,7 @@ export const deleteRecipe = async (req, res) => {
 //Get a single recipe
 
 export const getRecipe = async (req, res, next) => {
-    
+
     try {
         //get a recipe by ID
         const getArecipe = await RecipeModel.findById(req.params.id)

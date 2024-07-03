@@ -21,7 +21,10 @@ export const getRecipes = async (req, res, next) => {
 export const postRecipes = async (req, res, next) => {
     try {
         //Add recipe to database
-        const newRecipe = await RecipeModel.create(req.body)
+        const newRecipe = await RecipeModel.create({
+            ...req.body,
+            image: req.file.filename
+        })
         //return respon
         res.json('Recipe Added')
     } catch (error) {

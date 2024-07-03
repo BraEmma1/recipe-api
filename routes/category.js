@@ -1,11 +1,11 @@
 import { Router } from "express";
-import multer from "multer";
+// import multer from "multer";
 import { localUpload } from "../middlewares/uploads.js";
 import { getCategories, postCategory } from "../controllers/category.js";
 
 
 //create upload middleware
-const upload = multer({dest:'uploads/' })
+// const upload = multer({dest:'uploads/' })
 
 
 

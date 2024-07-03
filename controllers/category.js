@@ -1,9 +1,15 @@
+import { json } from "express";
 import { CategoryModel } from "../models/category.js";
 
 export const getCategories = async (req, res, next) => {
 try {
+    //Get query params
+    const { limit, skip, search } = req.query;
     //Get all categories from Database
-    const allCategories = await CategoryModel.find();
+    const allCategories = await CategoryModel
+    .find(JSON.parse(filter))
+    .limit(limit)
+    .skip(skip);;
     //Return respons
     res.status(200).json(allCategories)
 } catch (error) {

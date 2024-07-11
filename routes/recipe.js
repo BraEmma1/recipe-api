@@ -10,7 +10,7 @@ const recipeRouter = Router();
 
 //Apply middlewares
 
-//define your routes
+//define your routes/
 
 recipeRouter.get('/recipes', getRecipes);
 
